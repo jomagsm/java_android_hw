@@ -12,6 +12,7 @@
         android:theme="@style/Theme.LessonApp"
         tools:targetApi="31">
         <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

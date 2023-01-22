@@ -2,141 +2,111 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/ic_background"
     tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="Вход"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="900dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="256dp"
-        android:src="@drawable/ic_triangle"
+    <TextView
+        android:id="@+id/auth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/green" />
+        android:layout_marginBottom="100dp"
+        android:text="Добро пожаловать!"/>
 
     <TextView
-        android:id="@+id/text_app_bar"
+        android:id="@+id/auth_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="LOG IN"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingHorizontal="40dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/auth_title"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Выполните вход или зарегистрируйтесь"/>
 
-    <ImageView
-        android:id="@+id/main_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <EditText
+        android:id="@+id/auth_email"
+        android:paddingHorizontal="20dp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/ic_stitch_sit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_app_bar" />
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_corner_view"
+        app:layout_constraintTop_toBottomOf="@+id/auth_description"
+        android:hint="Введите вашу почту"
+        />
 
-    <TextView
-        android:id="@+id/text_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="Trivia"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_image"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/circle_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <EditText
+        android:id="@+id/auth_password"
+        android:paddingHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/circle_button"
-        app:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_main" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/bordered_button"
-        android:text="Log in with Facebook"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circle_button" />
-
-    <TextView
-        android:id="@+id/text_or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OR"
-        android:textColor="@color/gray"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_corner_view"
+        app:layout_constraintTop_toBottomOf="@+id/auth_email"
+        android:hint="Введите пароль"
+        android:inputType="textPassword"
         />
 
-    <View
-        android:layout_width="100dp"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        app:layout_constraintRight_toLeftOf="@+id/text_or"
-        app:layout_constraintTop_toTopOf="@+id/text_or"
-        app:layout_constraintBottom_toBottomOf="@+id/text_or"
-        android:layout_marginRight="20dp"
-       />
-
-    <View
-        android:layout_width="100dp"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        app:layout_constraintLeft_toRightOf="@+id/text_or"
-        app:layout_constraintTop_toTopOf="@+id/text_or"
-        app:layout_constraintBottom_toBottomOf="@+id/text_or"
-        android:layout_marginLeft="20dp"
-        />
-
-    <TextView
-        android:id="@+id/text_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Up with Email"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_button"
+        android:text="Войти"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_or"
-        android:layout_marginTop="20dp"
-        />
-
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/bordered_button"
-        android:text="GAME NOW"
         android:textColor="@color/white"
-        app:backgroundTint="@color/blue"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/auth_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/gray"
+        android:background="@drawable/rounded_corner_view"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/main_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_button" />
+        android:layout_marginTop="20dp">
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Забыл пароль?"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Нажми сюда"
+            android:textSize="16sp"
+            android:textColor="@color/orange"/>
+</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
