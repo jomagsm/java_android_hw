@@ -85,6 +85,7 @@
         android:background="@drawable/rounded_corner_view"/>
 
     <LinearLayout
+        android:id="@+id/forget_pass_text"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

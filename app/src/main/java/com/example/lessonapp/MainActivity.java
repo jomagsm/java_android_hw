@@ -12,19 +12,23 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final String loginAndPassword = "admin";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final String loginAndPassword = "admin";
         EditText email = findViewById(R.id.auth_email);
         EditText password = findViewById(R.id.auth_password);
         Button button = findViewById(R.id.main_button);
+        TextView authDescription = findViewById(R.id.auth_description);
+        LinearLayout forgetPass = findViewById(R.id.forget_pass_text);
         Drawable buttonDrawable = button.getBackground();
         email.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,12 +60,15 @@ public class MainActivity extends AppCompatActivity {
                 if (email.getText().toString().equals(loginAndPassword) &&
                         password.getText().toString().equals(loginAndPassword)) {
                     result = "Добро пожаловать";
+                    email.setVisibility(View.GONE);
+                    password.setVisibility(View.GONE);
+                    authDescription.setVisibility(View.GONE);
+                    button.setVisibility(View.GONE);
+                    forgetPass.setVisibility(View.GONE);
                 }
                 Toast.makeText(MainActivity.this,
                         result, Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
 }
