@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final String loginAndPassword = "admin";
+        TextView authAppBarTitle = findViewById(R.id.auth_app_bar_title);
         EditText email = findViewById(R.id.auth_email);
         EditText password = findViewById(R.id.auth_password);
         Button button = findViewById(R.id.main_button);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 if (email.getText().toString().equals(loginAndPassword) &&
                         password.getText().toString().equals(loginAndPassword)) {
                     result = "Добро пожаловать";
+                    authAppBarTitle.setVisibility(View.GONE);
                     email.setVisibility(View.GONE);
                     password.setVisibility(View.GONE);
                     authDescription.setVisibility(View.GONE);

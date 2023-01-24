@@ -8,6 +8,7 @@
     android:background="@drawable/ic_background"
     tools:context=".MainActivity">
     <TextView
+        android:id="@+id/auth_app_bar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
