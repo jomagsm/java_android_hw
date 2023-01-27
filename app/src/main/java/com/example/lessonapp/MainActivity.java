@@ -92,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             if (secondNumber == null) {
-                System.out.println("FIRST " + firstNumber);
                 secondNumber = Integer.valueOf(textView.getText().toString());
                 Integer temp = getResult(firstNumber, secondNumber, operationBtn);
                 operationBtn = view;
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textView.setText("ERROR");
                 }
-                System.out.println("FIRST " + firstNumber);
 
             } else {
                 secondNumber = Integer.valueOf(textView.getText().toString());
