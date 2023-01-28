@@ -3,12 +3,14 @@ package com.example.lessonapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,18 +22,42 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Integer firstNumber, secondNumber;
     private Boolean isOperationClick;
-
-    private View operationBtn;
+    private View operationBtn, showResultBtn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    private void init() {
         textView = findViewById(R.id.text_view);
+        showResultBtn = findViewById(R.id.btn_show_result);
+        showResultBtn.setVisibility(View.INVISIBLE);
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        showResultBtn.setOnClickListener(v -> {
+            intent.putExtra("result", textView.getText().toString());
+            startActivity(intent);
+        });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d("JOMA ", "onStop MAIN ACTIVITY");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        init();
+        Log.d("JOMA ", "onSTART MAIN ACTIVITY");
     }
 
     public void onNumberClick(View view) {
+        textView.setVisibility(View.VISIBLE);
         switch (view.getId()) {
             case R.id.btn_one:
                 changeTextView("1");
@@ -90,8 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 isOperationClick = true;
                 operationBtn = view;
                 return;
-            }
-            if (secondNumber == null) {
+            } else if (secondNumber == null) {
                 secondNumber = Integer.valueOf(textView.getText().toString());
                 Integer temp = getResult(firstNumber, secondNumber, operationBtn);
                 operationBtn = view;
@@ -116,6 +141,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } else {
+            if (firstNumber == null) {
+                return;
+            }
+            textView.setVisibility(View.INVISIBLE);
+            showResultBtn.setVisibility(View.VISIBLE);
             if (secondNumber == null) {
                 secondNumber = Integer.valueOf(textView.getText().toString());
                 Integer result = getResult(firstNumber, secondNumber, operationBtn);

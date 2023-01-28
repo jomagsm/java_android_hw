@@ -20,4 +20,13 @@
     <string name="minus">-</string>
     <string name="equal">=</string>
     <string name="dot">.</string>
+    <string name="show_the_result">Show the result</string>
+    <string name="policies">Policies</string>
+    <string name="policy">Policy</string>
+    <string name="product_category">Product Category</string>
+    <string name="origin_country">Origin Country</string>
+    <string name="brand">Brand</string>
+    <string name="current_policies">Current Policies</string>
+    <string name="export">Export as CSV</string>
+    <string name="country_of_origin">Country of Origin</string>
 </resources>
